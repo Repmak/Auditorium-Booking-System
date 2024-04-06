@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Create a booking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/mainstyles.css">
+    <link rel="stylesheet" href="static/step1styles.css">
+    <script src="static/funcs.js"></script>
+</head>
+
+<body>
+<div class="header" id="header">
+	<h1>Collyer's Auditorium Booking System - SELECT PERFORMANCE</h1>
+</div>
+
+<div class="content">
+    <div class="step1grid">
+        <div class="name">
+            <h5 id="name">No showing selected!</h5>
+        </div>
+
+        <div class="menu">
+            <h4 style="font-size: 35px;">Select a showing:</h4>
+            {% for i in range(0, performances|length) %}
+                <h2 class="performancenamebox">{{performances[i][1]}}</h2>
+                {% for k in range(0, showings|length) %}
+                    {% if showings[k][3] == performances[i][0]%}
+                        <h4 id="showing{{showings[k][0]}}" class="showingbuttonboxunchecked">{{showings[k][1]}} - {{showings[k][2][:5]}}</h4>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="details">
+            <h4 id="dateandtime">Date and time: -</h4>
+            <h4 id="genre">Genre: -</h4>
+            <h4 id="rating">Rating: -</h4>
+            <h4 id="seatsrem">Number of seats remaining: -</h4>
+            <h4 id="duration">Duration: -</h4>
+
+            {% if memberinfo[1] == 0 %}
+                <h4 style="left: 0;" id="revenue">Revenue: -</h4>
+            {% endif %}
+
+        </div>
+
+        <div class="description">
+            <h4 id="descr">-</h4>
+        </div>
+
+        <div class="image">
+            <img class="imageclass" id="image" src="https://t3.ftcdn.net/jpg/03/88/40/56/360_F_388405670_0CyoZYAqHUGJkwxWxq6FquVGjEv4UJ5K.jpg">
+        </div>
+
+    </div>
+
+    <form action="selectseatstickets" method="post" onsubmit="return showingselection()">
+        <input type="text" id="htmltopython1memberid" style="display: none;" name="htmltopython1memberid" value="">
+        <input type="text" id="htmltopython1membertype" style="display: none;" name="htmltopython1membertype" value="">
+        <input type="text" id="htmltopython1performanceid" style="display: none;" name="htmltopython1performanceid" value="">
+        <input type="text" id="htmltopython1showingid" style="display: none;" name="htmltopython1showingid" value="">
+        <input type="submit" id="nextstepbutton1" class="nextstepnotallowed" style="width: 700px; margin-top: 40px;" value="Select your seats and tickets →">
+    </form>
+
+</div>
+
+<script>
+
+var showings = {{jsshowings|safe}}
+var performances = {{jsperformances|safe}}
+var memberinfo = {{memberinfo|safe}}
+
+for (let i = 0; i < performances.length; i++) {
+    for (let k = 0; k < showings.length; k++) {
+        if (showings[k][3] == performances[i][0]){
+            document.getElementById("showing" + showings[k][0]).addEventListener("click", function(){selector(i, k, showings, performances, memberinfo)});
+        }
+    }
+}
+
+
+</script>
+
+</body>
+
+</html>

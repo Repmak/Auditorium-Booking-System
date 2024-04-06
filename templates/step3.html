@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Confirmation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/mainstyles.css">
+    <link rel="stylesheet" href="static/confirmationstyles.css">
+    <script src="static/funcs.js"></script>
+</head>
+<body>
+
+<div class="header" id="header">
+	<h1>Collyer's Auditorium Booking System - BOOKING CONFIRMATION</h1>
+</div>
+
+<div class="content">
+
+    <div class="confirmationboxheader">
+        <h2>You are booked to view {{performancename}}!</h2>
+    </div>
+
+    <div class="confirmationboxcontent">
+        <h4>A confirmation email will be sent to <b>{{email}}</b></h4>
+
+        <br>
+
+        <h4 id="message"></h4>
+
+        <br>
+
+        <h4>We look forward to seeing you there!</h4>
+
+        <br>
+
+
+        <form action="" method="post">
+            <input type="submit" class="nextstep" value="Logout →">
+        </form>
+
+
+        <h4 style="font-size: 20px; position: absolute; bottom: 0; left: 0; right: 0; margin: auto; margin-bottom: 300px;"><center>Any questions? Speak to a member of staff from student services or contact us on 01403210822.</center></h4>
+    </div>
+
+</div>
+
+<script>
+
+var seats = '{{seats}}'
+var convertedseatarray = []
+
+
+window.onbeforeunload = function() {
+    window.setTimeout(function () {
+        window.location = '/';
+    }, 0);
+    window.onbeforeunload = null;
+}
+
+
+while (seats != '') {
+    let num = seats.substring(0, seats.indexOf(","));
+    let quotient = Math.floor(num / 20);
+    let remainder = num % 20;
+    if (remainder === 0){
+        quotient = quotient - 1;
+        remainder = 20;
+    }
+    convertedseatarray.push(alphabet[quotient] + remainder);
+    seats = seats.slice(seats.indexOf(",") + 1);
+}
+
+document.getElementById("message").innerHTML = "<b>{{performancename}}</b> will be played in the <b>Duckering Hall</b> on <b>{{showingdate}}</b>. The performance will start at <b>{{showingtime}}</b>. You have booked the seats <b>" + convertedseatarray + "</b>.";
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/mainstyles.css">
+    <link rel="stylesheet" href="static/loginstyles.css">
+    <script src="static/funcs.js"></script>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Collyer's Auditorium Booking System - LOGIN</h1>
+</div>
+
+<div class="content">
+
+    <div class="loginboxheader">
+        <h2>Login to continue...</h2>
+    </div>
+
+    <div class="loginboxcontent">
+        <form action="selectperformance" method="post">
+            <h3 style="color: rgb(219,11,11)"><center><span style="color: transparent">-</span> {{invalidloginmsg}} <span style="color: transparent">-</span></center></h3>
+
+            <input type="text" class="logininput" id="email" name="email" placeholder="Email" required=""/>
+            <label for="email" class="loginlabel">Email</label>
+
+            <input type="password" class="logininput" id="password" name="password" placeholder="Password" required=""/>
+            <label for="password" class="loginlabel">Password</label>
+
+            <input type="submit" class="nextstep" value="Continue →">
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

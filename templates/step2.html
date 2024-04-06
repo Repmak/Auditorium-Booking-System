@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create a booking</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/mainstyles.css">
+    <link rel="stylesheet" href="static/step2styles.css">
+    <script src="static/funcs.js"></script>
+</head>
+<body>
+
+
+<div class="header" id="header">
+	<h1>Collyer's Auditorium Booking System - SELECT SEATS AND TICKETS</h1>
+</div>
+
+<div class="content">
+    <div class="step2grid">
+        <div class="seats">
+            <div class="seatsgrid">
+                {% for i in range(1, 201) %}
+                    <label id="{{i}}label" class="seat">
+                        <input id="{{i}}" type="checkbox">
+                        <span id="{{i}}span" class="seatavailable"></span>
+                    </label>
+                {% endfor %}
+            </div>
+            <div class="trapezoid">
+                <center><h2>STAGE</h2></center>
+            </div>
+        </div>
+
+        <div class="numticketsselected">
+            <h5 id="numticketsselected">0/0</h5><h4 style="font-weight: 500; float: left; margin-top: 5px;">tickets selected</h4>
+        </div>
+
+        <div class="tickets">
+
+            <h2 class="ticketbox">Under 18 / Over 65 <a style="font-size: 22px;">(£5)</a></h2>
+            <div class="plusminuscontainer">
+                <h2 class="plusminusbutton" id="u18o65plus" onclick="ticketclick(id, membertype)"><b>+</b></h2>
+                <h2 class="plusminuscounter" id="u18o65counter">0x</h2>
+                <h2 class="plusminusbutton" id="u18o65minus" onclick="ticketclick(id, membertype)"><b>-</b></h2>
+            </div>
+
+            <h2 class="ticketbox">Adult <a style="font-size: 22px;">(£10)</a></h2>
+            <div class="plusminuscontainer">
+                <h2 class="plusminusbutton" id="adultplus" onclick="ticketclick(id, membertype)"><b>+</b></h2>
+                <h2 class="plusminuscounter" id="adultcounter">0x</h2>
+                <h2 class="plusminusbutton" id="adultminus" onclick="ticketclick(id, membertype)"><b>-</b></h2>
+            </div>
+
+            {% if membertype == '0' %}
+                <h2 class="ticketbox">Staff <a style="font-size: 22px;">(£0)</a></h2>
+                <div class="plusminuscontainer">
+                    <h2 class="plusminusbutton" id="staffplus" onclick="ticketclick(id, membertype)"><b>+</b></h2>
+                    <h2 class="plusminuscounter" id="staffcounter">0x</h2>
+                    <h2 class="plusminusbutton" id="staffminus" onclick="ticketclick(id, membertype)"><b>-</b></h2>
+                </div>
+            {% endif %}
+
+            <br>
+
+            <h5 id="total" >Total: £0</h5>
+        </div>
+    </div>
+
+    <form action="seatsbooked" method="post" onsubmit="return ticketnum()">
+        <input type="text" style="display: none;" name="htmltopython2memberid" value="{{memberid}}">
+        <input type="text" style="display: none;" name="htmltopython2membertype" value="{{membertype}}">
+        <input type="text" style="display: none;" name="htmltopython2showingid" value="{{showingid}}">
+        <input type="text" style="display: none;" name="htmltopython2performanceid" value="{{performanceid}}">
+        <input type="text" id="htmltopython2seats" style="display: none;" name="htmltopython2seats" value="">
+        <input type="text" id="htmltopython2tickets" style="display: none;" name="htmltopython2tickets" value="">
+        <input type="submit" id="nextstepbutton2" class="nextstepnotallowed" style="width: 700px; margin-top: 40px;" value="Book your seats and tickets →">
+    </form>
+
+</div>
+
+
+<script>
+
+var showingseatarray = {{jsseatarray|safe}}
+var membertype = '{{membertype}}'
+
+
+for (let i = 1; i < 201; i++) {
+	let quotient = Math.floor(i / 20);
+    let remainder = i % 20;
+    if (remainder === 0){
+        quotient = quotient - 1;
+        remainder = 20;
+    }
+    document.getElementById(i + "span").innerHTML = alphabet[quotient] + remainder;
+    document.getElementById(i).addEventListener("click", function(){seatclick(i, membertype)});
+    if (showingseatarray[i - 1] === "0"){
+        document.getElementById(i + "span").className = '';
+        document.getElementById(i + "span").classList.add("seatavailable");
+    }
+    else {
+        document.getElementById(i + "span").className = '';
+        document.getElementById(i + "span").classList.add("seatunavailable");
+    }
+}
+
+</script>
+
+</body>
+</html>

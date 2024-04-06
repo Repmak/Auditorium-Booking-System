@@ -1,0 +1,172 @@
+.step2grid{
+  margin: auto;
+  width: 1600px;
+  height: 730px;
+  display: grid;
+  grid-template-areas:
+    'seats overview'
+    'seats tickets';
+  gap: 40px;
+  grid-template-columns: 1180px 380px;
+  grid-template-rows: 80px 610px;
+}
+
+.step2grid > div {
+  background-color: rgb(197, 198, 208);
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.seats { grid-area: seats;}
+.overview { grid-area: overview;}
+.tickets { grid-area: tickets}
+
+.seatsgrid{
+  margin: auto;
+  width: 1150px;
+  height: 100%;
+  display: grid;
+  column-gap: 15px;
+  row-gap: 20px;
+  grid-template-columns: repeat(4, 41px) repeat(1, 60px) repeat(9, 41px) repeat(1, 60px) repeat(5, 41px);
+  grid-template-rows: repeat(10, 41px);
+}
+
+.trapezoid {
+  margin: auto;
+  margin-top: -70px;
+  width: 1000px;
+  height: 50px;
+  background: rgb(19, 31, 68);
+  transform: perspective(70px) rotateX(1deg);
+  padding: 4px;
+}
+
+.seat{
+  display: block;
+  width: 41px;
+  height: 41px;
+  position: relative;
+  user-select: none;
+}
+
+.seat input {
+  display: none;
+}
+
+span {
+  margin-left: -20px;
+}
+
+span.seatavailable{
+  position: absolute;
+  width: 35px;
+  height: 28px;
+  padding-top: 7px;
+  font-family: roboto;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(19, 31, 68);
+  border-radius: 25%;
+  border: 3px solid rgb(242, 243, 244);
+  background-color: rgb(242, 243, 244);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+span.seatavailable:hover{
+  transform: scale(1.05, 1.05);
+  background-color: rgba(242, 243, 244, 0.3);
+  border-radius: 40%;
+}
+
+span.seatchecked{
+  position: absolute;
+  width: 35px;
+  height: 28px;
+  padding-top: 7px;
+  font-family: roboto;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(19, 31, 68);
+  border-radius: 25%;
+  color: white;
+  border: 3px solid rgb(19, 31, 68);
+  background-color: rgb(19, 31, 68);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+span.seatchecked:hover{
+  transform: scale(1.05, 1.05);
+  background-color: rgba(19, 31, 68, 0.3);
+  border-radius: 40%;
+}
+
+span.seatunavailable{
+  position: absolute;
+  width: 35px;
+  height: 28px;
+  padding-top: 7px;
+  font-family: roboto;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(19, 31, 68);
+  border-radius: 25%;
+  border: 3px solid rgb(219, 11, 11);
+  background-color: rgb(219, 11, 11);
+  cursor: not-allowed;
+  transition-duration: 0.3s;
+}
+
+span.seatunavailable:hover{
+  background-color: rgb(252, 71, 71);
+}
+
+.ticketbox{
+  margin: auto;
+  width: 360px;
+  height: 50px;
+  margin-bottom: 5px;
+  background-color: rgb(19, 31, 68);
+  border-radius: 4px;
+  padding-top: 6px;
+}
+
+.plusminuscontainer{
+  margin: auto;
+  width: 350px;
+  height: 40px;
+  margin-bottom: 25px;
+}
+
+.plusminuscounter{
+  user-select: none;
+  float: left;
+  margin-right: 6px;
+  margin-left: 6px;
+  width: 114px;
+  height: 40px;
+  background-color: rgb(242, 243, 244);
+  color: rgb(19, 31, 68);
+  border-radius: 4px;
+}
+
+.plusminusbutton{
+  user-select: none;
+  float: left;
+  width: 112px;
+  height: 40px;
+  background-color: rgb(242, 243, 244);
+  color: rgb(19, 31, 68);
+  border-radius: 4px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.plusminusbutton:hover{
+  background-color: rgb(197, 198, 208);
+  transform: scale(1.005, 1.005);
+  box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.1);
+}

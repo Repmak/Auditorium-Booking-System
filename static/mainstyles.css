@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,300&display=swap');
+
+
+html * {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: rgb(242, 243, 244);
+}
+
+.header {
+  width: 100%;
+  padding: 5px;
+  background-color: rgb(19, 31, 68);
+  position: fixed;
+  display: flex;
+  z-index: 1;
+}
+
+h1{
+  user-select: none;
+  margin: auto;
+  font-family: roboto;
+  font-size: 25px;
+  font-weight: 100;
+  color: rgb(197, 198, 208);
+}
+
+h2{
+  user-select: none;
+  margin: auto;
+  font-family: roboto;
+  font-size: 35px;
+  font-weight: 100;
+  color: rgb(197, 198, 208);
+}
+
+h3{
+  user-select: none;
+  margin: auto;
+  margin-bottom: 30px;
+  font-family: roboto;
+  font-size: 25px;
+  font-weight: 100;
+  color: rgb(19, 31, 68);
+}
+
+h4{
+  user-select: none;
+  margin-left: 15px;
+  font-family: roboto;
+  font-size: 30px;
+  font-weight: 400;
+  color: rgb(19, 31, 68);
+}
+
+h5{
+  user-select: none;
+  float: left;
+  margin-left: 15px;
+  margin-top: -5px;
+  font-family: roboto;
+  font-size: 50px;
+  font-weight: 500;
+  color: rgb(19, 31, 68);
+}
+
+.content{
+  box-sizing: border-box;
+  font-size: 30px;
+  padding-top: 100px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.nextstep{
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
+  font-family: roboto;
+  font-size: 30px;
+  font-weight: 100;
+  color: rgb(197, 198, 208);
+  background-color: rgb(19, 31, 68);
+  cursor: pointer;
+  border: none;
+  transition-duration: 0.3s;
+}
+
+.nextstep:hover{
+  background-color: rgb(32,42,88);
+  transform: scale(1.005, 1.005);
+  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nextstepnotallowed{
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
+  font-family: roboto;
+  font-size: 30px;
+  font-weight: 100;
+  color: rgb(197, 198, 208);
+  background-color: rgb(219, 11, 11);
+  cursor: not-allowed;
+  border: none;
+  transition-duration: 0.3s;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(197, 198, 208);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(19, 31, 68);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: rgb(0, 48, 143);
+}

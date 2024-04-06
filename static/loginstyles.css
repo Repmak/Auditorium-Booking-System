@@ -1,0 +1,53 @@
+.loginboxheader {
+  width: 450px;
+  height: 70px;
+  margin: auto;
+  margin-top: 80px;
+  display: flex;
+  background-color: rgb(19,31,68);
+  border-radius: 4px;
+}
+
+.loginboxcontent {
+  width: 450px;
+  height: 400px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 15px;
+  text-align: center;
+  background-color: rgb(197, 198, 208);
+  border-radius: 4px;
+}
+
+.loginlabel {
+  position: absolute;
+  font-family: roboto;
+  font-size: 1.2rem;
+  color: rgb(19,31,68);
+  margin-left: 5.1rem;
+  margin-top: -1.5rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(-5.5rem);
+}
+
+.logininput {
+  font-family: roboto;
+  font-size: 25px;
+  color: rgb(19,31,68);
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 10px 10px 5px 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: block;
+  border-bottom: 4px solid rgb(19,31,68);
+  transition: all 0.3s;
+}
+
+.logininput:placeholder-shown + .loginlabel {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-3rem);
+}

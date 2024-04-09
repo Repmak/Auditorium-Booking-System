@@ -10,3 +10,5 @@ Modify the email login credentials for sending an email confirmation (Auditorium
 Login information for student account: student@college.ac.uk, student
 Login information for parent/guardian account: parent@gmail.com, parent
 Login information for staff account: teacher@college.ac.uk, teacher
+
+Run Auditorium_Main.py to run the program.
